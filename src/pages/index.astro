@@ -1,25 +1,199 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
+// Components
+import ServiceShowcase from "@/components/services-showcase";
+import { Button } from "@/components/ui/button";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+// Layouts
+import MainLayout from "@/layouts/main.astro";
+import { services } from "@/data/services";
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "CFO, TechCorp",
+    content:
+      "Their ERP implementation transformed our operations. The team's expertise and support made the transition seamless.",
+    rating: 5,
+  },
+  {
+    name: "Michael Chen",
+    role: "Operations Manager",
+    content:
+      "Outstanding financial consulting services. They helped us reduce costs by 30% while improving efficiency.",
+    rating: 5,
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Small Business Owner",
+    content:
+      "The career development services were game-changing. I landed my dream job within 2 months of working with them.",
+    rating: 5,
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<MainLayout title="Home">
+  <!-- Hero Section -->
+  <section
+    class="bg-[url('images/hero-section-bg.svg')] bg-cover bg-center bg-no-repeat h-screen flex justify-center"
+  >
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div class="px-6 max-w-3xl">
+        <h1 class="text-2xl md:text-5xl font-semibold leading-tight mb-6">
+          <span class="text-secondary">Smarter</span> Decisions.
+          <br />
+          <span class="text-primary">Stronger</span> Business.
+        </h1>
+        <p class="text-md md:text-lg mb-8">
+          We help you streamline operations, reduce inefficiencies, and grow
+          faster—through expert financial and technical guidance.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <Button variant="default" size="lg" className="cursor-pointer">
+            🚀 Let's Transform Your Business
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="cursor-pointer"
+            aria-label="Learn more about our services"
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+  <!-- Trusted By Section -->
+  <section class="py-10 px-6 md:px-20 bg-white">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-xl font-semibold mb-4 uppercase tracking-wide">
+        Trusted by forward-thinking companies
+      </h2>
+      <p class="text-lg mb-10">
+        We've partnered with businesses across industries to optimize operations
+        and drive growth.
+      </p>
+
+      <div
+        class="flex flex-wrap justify-center items-center gap-10 transition-all duration-300"
+      >
+        <img
+          src="/images/ashland-logo.jpg"
+          alt="Ashland Logo"
+          class="h-12 md:h-16"
+        />
+        <img
+          src="/images/desco-logo.png"
+          alt="Desco Logo"
+          class="h-12 md:h-16"
+        />
+        <img
+          src="/images/kraft-logo.png"
+          alt="Kraft Logo"
+          class="h-12 md:h-16"
+        />
+        <img
+          src="/images/remax-logo.jpg"
+          alt="Remax Logo"
+          class="h-12 md:h-16"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 relative">
+    <div class="absolute inset-0 bg-gray-50 -z-20"></div>
+    <div
+      class="bg-[url('images/bg.svg')] bg-cover bg-center bg-no-repeat absolute inset-0 -z-10"
+    >
+    </div>
+
+    <div
+      class="bg-[url('images/services-section-bg.svg')] bg-cover bg-center bg-no-repeat absolute inset-0 -z-15"
+    >
+    </div>
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Comprehensive Business Solutions
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From financial strategy to technology implementation, we provide
+          end-to-end solutions that transform your business operations and drive
+          sustainable growth.
+        </p>
+      </div>
+
+      <!-- Interactive Service Showcase - Only React Component -->
+      <ServiceShowcase services={services} client:load />
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          What Our Clients Say
+        </h2>
+        <p class="text-xl text-gray-600">
+          Don't just take our word for it - hear from our satisfied clients
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          testimonials.map((testimonial, index) => (
+            <article class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div
+                class="flex mb-4"
+                aria-label={`${testimonial.rating} out of 5 stars`}
+              >
+                {Array.from({ length: testimonial.rating }, (_, i) => (
+                  <svg
+                    class="w-5 h-5 text-yellow-400 fill-current"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote class="text-gray-700 mb-6 italic leading-relaxed">
+                "{testimonial.content}"
+              </blockquote>
+              <footer class="border-t pt-4">
+                <cite class="font-semibold text-gray-900 not-italic">
+                  {testimonial.name}
+                </cite>
+                <p class="text-gray-600 text-sm">{testimonial.role}</p>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="py-20 inset-shadow-sm bg-gray-200">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Join hundreds of successful businesses that have accelerated their
+        growth with our expert solutions. Get started today with a free
+        consultation.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button variant="default" size="lg" className="cursor-pointer">
+          Schedule Free Consultation
+        </Button>
+        <Button variant="outline" size="lg" className="cursor-pointer">
+          View Our Portfolio
+        </Button>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,40 +1,84 @@
 export const services = [
   {
+    icon: "trending-up",
     title: "Financial & Accounting Services",
-    slug: "financial-accounting",
-    icon: "bar-chart-3",
+    description:
+      "Strategic financial solutions to maximize profits while minimizing costs through expert analysis and implementation.",
+    features: [
+      "Cost Optimization",
+      "Financial Strategy",
+      "Profit Maximization",
+    ],
   },
   {
+    icon: "calculator",
     title: "Bookkeeping & Month-End Close",
-    slug: "bookkeeping-month-end",
-    icon: "file-text",
+    description:
+      "Full-cycle bookkeeping with detailed variance analysis to support accurate financial forecasting.",
+    features: [
+      "Journal Entries",
+      "Account Reconciliation",
+      "Variance Analysis",
+    ],
   },
   {
-    title: "ERP Implementation & Training",
-    slug: "erp-implementation",
     icon: "settings",
+    title: "ERP Implementation & Training",
+    description:
+      "Seamless ERP transitions with comprehensive change management and employee training programs.",
+    features: ["Change Management", "Employee Training", "System Migration"],
   },
-  { title: "ERP System Support", slug: "erp-support", icon: "life-buoy" },
   {
-    title: "MS Office & Excel Training",
-    slug: "ms-office-training",
-    icon: "table",
+    icon: "monitor",
+    title: "ERP System Support",
+    description:
+      "Expert support for AS400, SAP, QuickBooks, and other platforms with ongoing training and troubleshooting.",
+    features: ["Multi-Platform Support", "Troubleshooting", "User Training"],
   },
-  { title: "IT & Remote Work Solutions", slug: "it-remote", icon: "network" },
   {
-    title: "Career & Professional Development",
-    slug: "career-development",
-    icon: "briefcase",
-  },
-  { title: "Legal Support Services", slug: "legal-support", icon: "gavel" },
-  {
-    title: "Educational Services",
-    slug: "educational-services",
     icon: "graduation-cap",
+    title: "MS Office & Excel Training",
+    description:
+      "Tailored Microsoft Office training from basic tasks to advanced Excel programming for maximum productivity.",
+    features: ["Basic to Advanced", "Custom Training", "Productivity Focus"],
   },
-  { title: "Workplace Automation", slug: "automation", icon: "cpu" },
-  { title: "24/7 Service Availability", slug: "availability", icon: "clock" },
+  {
+    icon: "users",
+    title: "IT & Remote Work Solutions",
+    description:
+      "Comprehensive IT support and home office setup for seamless remote work experiences.",
+    features: ["Network Solutions", "Remote Setup", "VPN Configuration"],
+  },
+  {
+    icon: "briefcase",
+    title: "Career Development",
+    description:
+      "Professional resume building, job search optimization, and interview preparation services.",
+    features: ["Resume Building", "Interview Prep", "Recruitment Strategy"],
+  },
+  {
+    icon: "scale",
+    title: "Legal Support Services",
+    description:
+      "Employment and civil rights guidance for workplace transitions and legal compliance.",
+    features: ["Employment Rights", "Legal Guidance", "Compliance Support"],
+  },
+  {
+    icon: "book-open",
+    title: "Educational Services",
+    description:
+      "University-level accounting tutoring aligned with post-secondary curriculum to boost academic performance.",
+    features: ["Levels 1-3", "GPA Improvement", "Curriculum Aligned"],
+  },
+  {
+    icon: "zap",
+    title: "Workplace Automation",
+    description:
+      "Process automation solutions to save hours of manual work and demonstrate measurable value.",
+    features: ["Process Automation", "Time Savings", "Value Demonstration"],
+  },
 ];
+
 export const serviceCategories = [
   {
     category: "Financial & Accounting",
