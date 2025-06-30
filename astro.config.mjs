@@ -15,4 +15,5 @@ export default defineConfig({
 
   integrations: [react()],
   adapter: netlify(),
+  trailingSlash: "always",
 });
